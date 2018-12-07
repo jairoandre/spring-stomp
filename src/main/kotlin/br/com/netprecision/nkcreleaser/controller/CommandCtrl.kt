@@ -1,6 +1,8 @@
 package br.com.netprecision.nkcreleaser.controller
 
+import br.com.netprecision.nkcreleaser.client.TodoClient
 import br.com.netprecision.nkcreleaser.model.HelloMessage
+import br.com.netprecision.nkcreleaser.model.Todo
 import br.com.netprecision.nkcreleaser.runner.CommandRunner
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -18,6 +20,9 @@ class CommandCtrl {
     @Autowired
     lateinit var runner: CommandRunner
 
+    @Autowired
+    lateinit var todoClient: TodoClient
+
     @RequestMapping("/run")
     fun getRun(@RequestParam("cmd") cmd: String) : ResponseEntity<String> {
         println("Running command: $cmd")
@@ -25,11 +30,15 @@ class CommandCtrl {
         return ResponseEntity.ok("Success!")
     }
 
-    @MessageMapping("/hello")
-    @SendTo("/topic/output")
-    fun hello(message: HelloMessage) : String {
-        return "Hello there ${message.name}"
+    @MessageMapping("/run")
+    fun run(cmd: String) {
+        println(cmd)
+        runner.run(cmd)
+    }
 
+    @RequestMapping("/todos")
+    fun findTodos() : ResponseEntity<List<Todo>> {
+        return ResponseEntity.ok(todoClient.findAll())
     }
 
 }

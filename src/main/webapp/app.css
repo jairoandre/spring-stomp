@@ -1,6 +1,13 @@
 body {
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
+}
+
+.output-wrp {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
 }
 .output {
     white-space: pre;
@@ -10,5 +17,5 @@ body {
     margin: 0;
     width: 100%;
     font-family: monospace;
-    line-height: 20px;
+    line-height: 9px;
 }

@@ -18,6 +18,7 @@ class CommandRunner {
         //builder.directory(File(System.getProperty("user.home")))
         //val process = builder.start()
         //builder.command("sh", "-c", "\"$command\"")
+        sendToBroker("Running $command...")
         val process = Runtime.getRuntime().exec(command)
         val gobbler = StreamGobbler(process.inputStream, ::socketConsumer)
         Executors.newSingleThreadExecutor().submit(gobbler)
@@ -26,7 +27,6 @@ class CommandRunner {
     }
 
     private fun socketConsumer(str: String) {
-        println(str)
         sendToBroker(str)
     }
 

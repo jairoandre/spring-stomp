@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <title>NKC - Releaser</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,6 +15,10 @@
         Javascript and reload this page!</h2>
 </noscript>
 <div id="app">
+    <div class="command-wrp" style="padding: 5px">
+        <input v-model="command">
+        <button v-on:click="sendCommand">Send</button>
+    </div>
     <div class="output-wrp">
         <div v-for="item in output" class="output">
             {{ item }}
