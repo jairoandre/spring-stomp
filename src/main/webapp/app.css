@@ -1,13 +1,17 @@
 body {
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.command-wrp {
+    width: 50%;
 }
 
 .output-wrp {
     position:absolute;
-    bottom: 0;
-    width: 100%;
+    top: 0;
+    left: 50%;
+    width: 50%;
 }
 .output {
     white-space: pre;
