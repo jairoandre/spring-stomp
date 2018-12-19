@@ -7,8 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <noscript>
@@ -16,15 +16,14 @@
         enabled. Please enable
         Javascript and reload this page!</h2>
 </noscript>
-<section class="section">
+<div class="columns is-desktop is-vcentered">
+    <div class="column"><p class="is-primary">keepapi</p></div>
+    <div class="column">keepweb</div>
+    <div class="column">nkc-config</div>
+    <div class="column">nkc-config-front</div>
+</div>
     <div id="app" class="container">
         <div class="command-wrp" style="padding: 5px">
-            <div class="columns is-desktop is-vcentered">
-                <div class="column"><p class="is-primary">keepapi</p></div>
-                <div class="column">keepweb</div>
-                <div class="column">nkc-config</div>
-                <div class="column">nkc-config-front</div>
-            </div>
             <input v-model="command">
             <button v-on:click="sendCommand">Send</button>
         </div>
@@ -35,7 +34,6 @@
         </div>
     </div>
 
-</section>
 <script src="app.js"></script>
 </body>
 </html>
